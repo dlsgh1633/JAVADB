@@ -6,14 +6,14 @@ import java.sql.*;
 import java.util.Scanner;
 
 class CallData{ // 주는 GET과 셋팅하는(받는) SET 클래스.
-    String a, b, c; // 문자열 a,b,c 선언
+    String str1, str2, str3; // 문자열 a,b,c 선언
 
-    public String getA() {      return a;   }
-    public void setA(String a) {      this.a = a;   }
-    public String getB() {      return b;   }
-    public void setB(String b) {      this.b = b;   }
-    public String getC() {      return c;   }
-    public void setC(String c) {      this.c = c;   }
+    public String getStr1() {      return str1;   }
+    public void setStr1(String a) {      this.str1 = a;   }
+    public String getStr2() {      return str2;   }
+    public void setStr2(String b) {      this.str2 = b;   }
+    public String getStr3() {      return str3;   }
+    public void setStr3(String c) {      this.str3 = c;   }
 
 }
 
@@ -32,9 +32,9 @@ class CallSQLC {
         try {
 
             pstmt = conn.prepareStatement(" insert into phondb values (?,?,?);");
-            pstmt.setString(1, c.getA());
-            pstmt.setString(2, c.getB());
-            pstmt.setString(3, c.getC());
+            pstmt.setString(1, c.getStr1());
+            pstmt.setString(2, c.getStr2());
+            pstmt.setString(3, c.getStr3());
 
 
             int num = pstmt.executeUpdate();
@@ -107,18 +107,18 @@ class InputCB1
 
 
         System.out.print("이름을 입력하세요 : ");
-        d.setA(scS.nextLine());
+        d.setStr1(scS.nextLine());
         System.out.print("전화번호를 입력하세요 : ");
-        d.setB(scS.nextLine());
+        d.setStr2(scS.nextLine());
         System.out.print("주소를 입력하세요 : ");
-        d.setC(scS.nextLine());
+        d.setStr3(scS.nextLine());
         return d;
 
     }
     String findname(){
         Scanner scS = new Scanner(System.in);
         System.out.print("이름을 입력해주세요 : ");
-        return scS.next();
+        return scS.nextLine();
 
     }
 }
